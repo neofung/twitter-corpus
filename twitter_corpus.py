@@ -27,10 +27,19 @@ from __future__ import print_function
 
 import sys
 import threading
-import Queue
+
+try:
+    import Queue
+except ImportError:
+    import queue as Queue
+
 import time
 import socket
-import httplib
+
+try:
+    import httplib
+except ImportError:
+    import http.client as httplib
 
 from tweepy import OAuthHandler
 from tweepy import Stream
